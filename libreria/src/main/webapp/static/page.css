@@ -40,7 +40,6 @@ body {
   background-color: #ddd;
   color: black;
 }
-
 /* Create two unequal columns that floats next to each other */
 /* Left column */
 .leftcolumn {   
@@ -99,4 +98,5 @@ text-align:center;
     float: none;
     width: 100%;
   }
+  
 }

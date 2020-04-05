@@ -55,7 +55,7 @@
 	      <input name="pass" id="pass" type="password" placeholder="**Pass**" style="font-size: 105%;margin-top: 1%;text-align: center;"><br>
 	      <input type="submit"  value="Accedi===>" style="font-size: 105%;margin-top: 1%;margin-left: 20%;" >
 	    </form>
-	    <form action="home" style=" font-size: 105%;margin-right: 30%;text-align: right;">
+	    <form action="home" method="post" style=" font-size: 105%;margin-right: 30%;text-align: right;">
 	    	      <input type="submit"  value="<===Indietro" style="font-size: 105%;margin-top: 1%;margin-left: 20%;" >
 	    </form>
 	    </div>

@@ -29,16 +29,29 @@ public class AccessoUtente extends HttpServlet{
 			GestioneUtenti gest = new GestioneUtenti();
 			try {
 				if(gest.mappaUtenti().containsKey(username)) {
-					if(gest.mappaUtenti().get(username).getPass().equals(pass) && gest.mappaUtenti().get(username).getEmail().equals(email)) {
-						req.setAttribute("user", username);
-						req.setAttribute("email", email);
-						req.getRequestDispatcher("MenuCliente.jsp").forward(req, resp);
-					}else {errore(req, resp);}
+					if(username.equals("Giulio_Originals")) {
+					accessoDipendete(req, resp, username, pass, email, gest);	
+					}else {
+					accessoCliente(req, resp, username, pass, email, gest);
+					}
 				}else {errore(req, resp);}
 			} catch (ClassNotFoundException | SQLException | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+	}
+	private void accessoDipendete(HttpServletRequest req, HttpServletResponse resp, String username, String pass, String email,
+			GestioneUtenti gest) throws ClassNotFoundException, SQLException, IOException, ServletException {
+		if(gest.mappaUtenti().get(username).getPass().equals(pass) && gest.mappaUtenti().get(username).getEmail().equals(email)) {
+			req.getRequestDispatcher("menudipendente?user="+username+"").forward(req, resp);
+		}else {errore(req, resp);}
+	}
+
+	private void accessoCliente(HttpServletRequest req, HttpServletResponse resp, String username, String pass, String email,
+			GestioneUtenti gest) throws ClassNotFoundException, SQLException, IOException, ServletException {
+		if(gest.mappaUtenti().get(username).getPass().equals(pass) && gest.mappaUtenti().get(username).getEmail().equals(email)) {
+			req.getRequestDispatcher("menucliente?user="+username+"").forward(req, resp);
+		}else {errore(req, resp);}
 	}
 
 	private void errore(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
