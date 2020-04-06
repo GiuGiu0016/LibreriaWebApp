@@ -5,6 +5,7 @@ public class Affitto {
 	private String titolo;
 	private String username;
 	private long id;
+	private int quantita;
 	public Affitto(String titolo, String username, long id) {
 		this.titolo = titolo;
 		this.username = username;
@@ -27,6 +28,12 @@ public class Affitto {
 	}
 	public void setId(long id) {
 		this.id = id;
+	}
+	public int getQuantita() {
+		return quantita;
+	}
+	public void setQuantita(int quantita) {
+		this.quantita = quantita;
 	}
 	
 	

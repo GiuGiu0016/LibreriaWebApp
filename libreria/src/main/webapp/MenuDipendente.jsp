@@ -86,7 +86,6 @@ th {
 			List<Libro> listalibri = new ArrayList<>(gest2.mappaLibri().values());
 			Utente u = gest.mappaUtenti().get(user);
 			GestioneAffitto gest3 = new GestioneAffitto();
-			GestioneLibri gestioneLibri = new GestioneLibri();
 			List<Affitto> listalibriaffitti = new ArrayList<>(gest3.mappaLibriAffittati().values());
 		%>
 	<!-- Sotto pagina sinistra -->
@@ -170,6 +169,7 @@ th {
 			%>
 		</table>
 	    </div>
+
 	  </div>
 	<!-- Colonna destra 1 -->
 	  <div class="rightcolumn">

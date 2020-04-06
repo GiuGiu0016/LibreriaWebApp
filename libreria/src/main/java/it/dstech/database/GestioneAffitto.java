@@ -77,4 +77,37 @@ public class GestioneAffitto {
 		}
 		return false;
 	}
+	
+	public HashMap<Long, Affitto> mappaLibriAcquistati() throws ClassNotFoundException, SQLException, IOException{
+		HashMap<Long, Affitto> mappaLibriAcquistati = new  HashMap<>();
+		String query = "SELECT * FROM affitto;";
+		Statement statement = con().createStatement();
+		ResultSet resultSet = statement.executeQuery(query);
+		while(resultSet.next()) {
+			long id  = resultSet.getLong(1);
+			String user = resultSet.getString(2);
+			String titolo = resultSet.getString(3);
+			int quantita = resultSet.getInt(4);
+			Affitto affitto = new Affitto(titolo, user, id);
+			affitto.setQuantita(quantita);
+			mappaLibriAcquistati.put(affitto.getId(), affitto);
+		}
+		return mappaLibriAcquistati;
+	}
+	
+	public boolean Acquisto(String titolo,String user,int quantita,double prezzo) throws ClassNotFoundException, SQLException, IOException {
+		GestioneLibri gestioneLibri = new GestioneLibri();
+		if(gestioneLibri.modificaquantita(-quantita, titolo)) {
+			String query = "INSERT INTO acquisto(username,titolo,quantita,prezzo) VALUES (?,?,?,?);";
+			PreparedStatement statement = con().prepareStatement(query);
+			statement.setString(1, user);
+			statement.setString(2, titolo);
+			statement.setInt(3, quantita);
+			statement.setDouble(4, quantita*prezzo);
+			statement.execute();
+			return true;
+		}else {
+			return false;
+		}
+	}
 }
