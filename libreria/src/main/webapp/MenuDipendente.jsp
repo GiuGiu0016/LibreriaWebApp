@@ -73,7 +73,7 @@ th {
 		    <form action="PopolaMagazino?user=<%=user%>" method="post"><input type="submit" value="Registra-Libro  &#10145;&#65039" style="padding:5%;font-size:80%;padding-right: 38%; background-color: #003366;color: white;"></form>
    		    <form action="rimozione?user=<%=user%>" method="post"><input type="submit" value="Elimina Libro  &#10145;&#65039" style="padding:5%;font-size:80%;padding-right: 42%;background-color: #003366;color: white;"></form>
 		    <form action="quantita?user=<%=user%>" method="post"><input type="submit" value="Aggiorna quantita  &#10145;&#65039" style="padding:5%;font-size:80%;padding-right: 25%;background-color: #003366;color: white;"></form>
-		    <form action="home" method="post"><input type="submit" value="Sollecita restituzione  &#10145;&#65039" style="padding:5%;font-size:80%;padding-right: 15%;background-color: #003366;color: white;"></form>				    
+		    <form action="EmailInserimentoDati.jsp?user=<%=user%>" method="post"><input type="submit" value="Sollecita restituzione  &#10145;&#65039" style="padding:5%;font-size:80%;padding-right: 15%;background-color: #003366;color: white;"></form>				    
 		    </div>
 		</div>
 		<a href="home">Exit &#10145;&#65039</a>
