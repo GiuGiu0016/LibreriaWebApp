@@ -80,14 +80,14 @@ public class GestioneAffitto {
 	
 	public HashMap<Long, Affitto> mappaLibriAcquistati() throws ClassNotFoundException, SQLException, IOException{
 		HashMap<Long, Affitto> mappaLibriAcquistati = new  HashMap<>();
-		String query = "SELECT * FROM affitto;";
+		String query = "SELECT * FROM acquisto;";
 		Statement statement = con().createStatement();
 		ResultSet resultSet = statement.executeQuery(query);
 		while(resultSet.next()) {
-			long id  = resultSet.getLong(1);
-			String user = resultSet.getString(2);
-			String titolo = resultSet.getString(3);
-			int quantita = resultSet.getInt(4);
+			long id  = resultSet.getLong("idacquisto");
+			String user = resultSet.getString("username");
+			String titolo = resultSet.getString("titolo");
+			int quantita = resultSet.getInt("quantita");
 			Affitto affitto = new Affitto(titolo, user, id);
 			affitto.setQuantita(quantita);
 			mappaLibriAcquistati.put(affitto.getId(), affitto);

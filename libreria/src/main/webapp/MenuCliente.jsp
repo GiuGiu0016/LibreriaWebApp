@@ -67,7 +67,7 @@ th {
 		    </button>
 		    <div class="dropdown-content">
 		    <form action="affitto?user=<%=user%>" method="post"><input type="submit" value="Affitto Libri  &#10145;&#65039" style="padding:5%;font-size:80%;padding-right: 45%; background-color: #003366;color: white;"></form>
-   		    <form action="acquisto?user=<%=user%>" method="post"><input type="submit" value="Acquista Libri  &#10145;&#65039" style="padding:5%;font-size:80%;padding-right: 34.5%;background-color: #003366;color: white;"></form>
+   		    <form action="Acquisto.jsp?user=<%=user%>" method="post"><input type="submit" value="Acquista Libri  &#10145;&#65039" style="padding:5%;font-size:80%;padding-right: 34.5%;background-color: #003366;color: white;"></form>
 		    <form action="restituzionepage?user=<%=user%>" method="post"><input type="submit" value="Restituisci Libro  &#10145;&#65039" style="padding:5%;font-size:80%;padding-right: 26%;background-color: #003366;color: white;"></form>
 		    <form action="listaaffitti?user=<%=user%>" method="post"><input type="submit" value="Stampa Affitti  &#10145;&#65039" style="padding:5%;font-size:80%;padding-right: 35%;background-color: #003366;color: white;"></form>				    
 		    <form action="StampaAcquisti.jsp?user=<%=user%>" method="post"><input type="submit" value="Stampa Acquisti  &#10145;&#65039" style="padding:5%;font-size:80%;padding-right: 25%;background-color: #003366;color: white;"></form>				    		    

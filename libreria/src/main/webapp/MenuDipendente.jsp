@@ -87,6 +87,7 @@ th {
 			Utente u = gest.mappaUtenti().get(user);
 			GestioneAffitto gest3 = new GestioneAffitto();
 			List<Affitto> listalibriaffitti = new ArrayList<>(gest3.mappaLibriAffittati().values());
+			List<Affitto> listaacquisti = new ArrayList<>(gest3.mappaLibriAcquistati().values());
 		%>
 	<!-- Sotto pagina sinistra -->
 	<div class="row">
@@ -169,7 +170,35 @@ th {
 			%>
 		</table>
 	    </div>
-
+ <div class="card" >
+	    	        <h2>Lista libri acquistati:</h2>
+	    
+	  		<table>
+			<tr>
+				<th>iD-Libro</th>
+				<th>Titolo</th>
+				<th>Autore</th>
+				<th>Quantita</th>
+				<th>Costo</th>
+				<th>Utente</th>
+			</tr>
+			<%
+				for (Affitto affitto : listaacquisti ) {
+					Libro libro = gest2.mappaLibri().get(affitto.gettitolo());
+			%>
+			<tr>
+				<td><%=libro.getId()%></td>
+				<td><%=libro.getTitolo()%></td>
+				<td><%=libro.getAutore()%></td>
+				<td><%=affitto.getQuantita()%></td>
+				<td><%=affitto.getQuantita()*libro.getCosto()%></td>
+				<td><%=affitto.getUser()%></td>
+			</tr>
+			<%
+				}
+			%>
+		</table>
+	    </div>
 	  </div>
 	<!-- Colonna destra 1 -->
 	  <div class="rightcolumn">
@@ -181,7 +210,7 @@ th {
 	    </div>
 	    <div class="card" style="text-align: center;background-color: #b3b3b3;">
 	      <h2>Informazioni personali raccolte:</h2>
-	      <div class="fakeimg" style="text-align: center;padding: 1%;"> <img src="https://www.gifanimate.com/data/media/53/libro-immagine-animata-0042.gif"> </div>
+	      <div class="fakeimg" style="text-align: center;padding: 1%;"> <img src="https://media.giphy.com/media/mFdnWF1RTI7fi/200w.gif"> </div>
 	      <p>Username: "<%=u.getUsername()%>"</p>
 	      <p>Nome: "<%=u.getNome() %>"</p>
 	      <p>Cognome: "<%=u.getCognome() %>"</p>
